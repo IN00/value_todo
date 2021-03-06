@@ -1,3 +1,5 @@
+require 'value_todo'
+
 begin
   ValueTodo::BuildValueTodoListUseCase.execute
 rescue => e
