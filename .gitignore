@@ -1,0 +1,5 @@
+vendor/
+.bundle/
+.pryrc
+Gemfile.lock
+value_todo.md
