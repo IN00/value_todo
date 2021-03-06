@@ -1,3 +1,5 @@
-#!/usr/bin/env bash
-
-echo hoge
+begin
+  BuildValueTodoListUseCase.execute
+rescue => e
+  puts e
+end
