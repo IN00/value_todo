@@ -1,5 +1,5 @@
 begin
-  BuildValueTodoListUseCase.execute
+  ValueTodo::BuildValueTodoListUseCase.execute
 rescue => e
   puts e
 end
