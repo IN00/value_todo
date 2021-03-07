@@ -3,3 +3,4 @@ vendor/
 .pryrc
 Gemfile.lock
 value_todo.md
+todo.md
