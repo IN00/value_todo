@@ -1,3 +1,7 @@
-#!/usr/bin/env bash
+require 'value_todo'
 
-echo hoge
+begin
+  ValueTodo::BuildValueTodoListUseCase.execute
+rescue => e
+  puts e
+end
