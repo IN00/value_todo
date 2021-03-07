@@ -19,7 +19,7 @@ module ValueTodo
       private
 
       def todo_paths_from_executing_directory
-        paths = Dir.glob('**/todo.md')
+        paths = Dir.glob('**/todo.md', File::FNM_DOTMATCH)
         raise Error, 'Not exists todo.md under execution position.' if paths.empty?
 
         paths
