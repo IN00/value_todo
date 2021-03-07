@@ -26,7 +26,7 @@ module ValueTodo
       def value_todo(inline_content)
         <<~TEXT
           - #{inline_content.content}
-            - #{inline_content.value} / #{inline_content.file_path}
+            - #{inline_content.value} / [#{inline_content.file_path}](#{inline_content.file_path})
         TEXT
       end
     end
