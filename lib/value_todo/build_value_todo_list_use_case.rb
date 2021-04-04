@@ -1,9 +1,16 @@
+require 'yaml'
+
 module ValueTodo
   # CD配下に存在する todo.md の value_todo.md を CD配下に作成します。
   class BuildValueTodoListUseCase
     class << self
       def execute
-        parsed_files = ParseTodoFileUseCase.execute
+        config = ::YAML.load_file('value_todo_config.yml')
+        paths = TodoPaths.new(included_paths: config['included_paths'], ignored_dirs: config['ignored_dirs']).paths
+
+        raise Error, 'Not exists todo.md under execution position.' if paths.empty?
+
+        parsed_files = ParseTodoFileUseCase.execute(paths: paths)
 
         inline_contents = parsed_files.flat_map do |parsed_file|
           parsed_file.inline_type_markdown_it_token_wrappers.map do |inline_type_markdown_it_token_wrapper|
